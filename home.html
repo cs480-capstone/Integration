@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic Geo App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content>
+  <div #map id="map"></div> 
+
+  <ion-grid>
+    <ion-row>
+      <ion-col width-50>
+        <button (click)="observeNearest()" id = collect>Observe a tree</button>
+      </ion-col>
+      <ion-col width-50>
+        <button (click)="revealHidden()" id = check>Check for Hidden</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
