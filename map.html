@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons left>
+      <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    </ion-buttons>
+    <ion-title class = "toolbar-background">
+        <span text-color = "white-text"> Map </span>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div #mappage id="map"></div> 
+
+  <ion-grid>
+    <ion-row>
+      <ion-col width-50>
+        <button (click)="observeNearest()" id = collect>Observe a tree</button>
+      </ion-col>
+      <ion-col width-50>
+        <button (click)="revealHidden()" id = check>Check for Hidden</button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
+
+
+
+<!--<ion-content id = buttons>
+
+</ion-content> 
+
+<ion-content >
+ <div #mappage id="map"></div>
+ <button ion-button (click)="observeNearest()" id = "collect">observe a tree</button>
+ <button ion-button (click)="revealHidden()" id = "check">Check for Hidden</button>
+</ion-content>-->
+
+
+
