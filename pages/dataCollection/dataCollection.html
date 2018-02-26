@@ -1,0 +1,171 @@
+<ion-header>
+    <ion-navbar>
+      <ion-buttons left>
+        <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      </ion-buttons>
+      <ion-title class = "toolbar-background">
+          <span text-color = "white-text"> Data Collection </span>
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+ 
+ 
+  <ion-content>
+      <div *ngIf = "showPollenCones">
+        <ion-card>
+          <ion-card-header>
+              <button ion-button small> more info </button>
+          </ion-card-header>
+          <ion-card-content>
+              
+            <canvas #pollenCones></canvas>
+            <ion-item>
+                <ion-range
+                [(ngModel)] = "pollenConesValue"  min="0" max="100" step="5"
+                 snaps = "true" pin = "true" 
+                (ionChange) = "redrawBarGraph(0,pollenConesValue)"
+                >
+                    <ion-label range-left>0</ion-label>
+                    <ion-label range-right>100</ion-label>
+              </ion-range>
+            </ion-item>
+            <ion-label style = "text-align: center">{{pollenConesValue}}</ion-label>
+          </ion-card-content>
+        </ion-card>
+      </div>
+  
+      <div *ngIf = "showUnfoldingLeaves">
+          <ion-card>
+            <ion-card-header>
+              Unfolding Leaves
+            </ion-card-header>
+            <ion-card-content>
+              <canvas #unfoldingLeaves></canvas>
+    
+              <ion-item>
+                  <ion-range 
+                  [(ngModel)] = "unfoldingLeavesValue"  min="0" max="100" step="5" snaps = "true" pin = "true" 
+                  (ionChange) = "redrawBarGraph(1,unfoldingLeavesValue)"
+                  >
+                      <ion-label range-left>0</ion-label>
+                      <ion-label range-right>100</ion-label>
+                </ion-range>
+              </ion-item>
+    
+            </ion-card-content>
+          </ion-card>
+        </div>
+    
+        <div *ngIf = "showFullSizedLeaves">
+          <ion-card>
+            <ion-card-header>
+              Leaf Size
+            </ion-card-header>
+            <ion-card-content>
+              <canvas #fullSizedLeaves></canvas>
+    
+              <ion-item>
+                  <ion-range 
+                  [(ngModel)] = "fullSizedLeavesValue"  min="0" max="100" step="5" snaps = "true" pin = "true" 
+                  (ionChange) = "redrawBarGraph(2,fullSizedLeavesValue)"
+                  >
+                      <ion-label range-left>0</ion-label>
+                      <ion-label range-right>100</ion-label>
+                </ion-range>
+              </ion-item>
+    
+            </ion-card-content>
+          </ion-card>
+        </div>
+    
+        <div *ngIf = "showColoredLeaves">
+          <ion-card>
+            <ion-card-header>
+              Leaf Color
+            </ion-card-header>
+            <ion-card-content>
+              <canvas #coloredLeaves></canvas>
+    
+              <ion-item>
+                  <ion-range 
+                  [(ngModel)] = "coloredLeavesValue"  min="0" max="100" step="5" snaps = "true" pin = "true" 
+                  (ionChange) = "redrawBarGraph(3,coloredLeavesValue)"
+                  >
+                      <ion-label range-left>0</ion-label>
+                      <ion-label range-right>100</ion-label>
+                </ion-range>
+              </ion-item>
+    
+            </ion-card-content>
+          </ion-card>
+        </div>
+    
+        <div *ngIf = "showOpenedFlowers">
+          <ion-card>
+            <ion-card-header>
+              Leaf Openness
+            </ion-card-header>
+            <ion-card-content>
+              <canvas #openedFlowers></canvas>
+    
+              <ion-item>
+                  <ion-range 
+                  [(ngModel)] = "openedFlowersValue"  min="0" max="100" step="5" snaps = "true" pin = "true" 
+                  (ionChange) = "redrawBarGraph(4,openedFlowersValue)"
+                  >
+                      <ion-label range-left>0</ion-label>
+                      <ion-label range-right>100</ion-label>
+                </ion-range>
+              </ion-item>
+    
+            </ion-card-content>
+          </ion-card>
+        </div>
+    
+        <div *ngIf = "showRipeFruits">
+          <ion-card>
+            <ion-card-header>
+              Fruit Ripeness
+            </ion-card-header>
+            <ion-card-content>
+              <canvas #ripeFruits></canvas>
+    
+              <ion-item>
+                  <ion-range 
+                  [(ngModel)] = "ripeFruitsValue"  min="0" max="100" step="5" snaps = "true" pin = "true" 
+                  (ionChange) = "redrawBarGraph(5,ripeFruitsValue)"
+                  >
+                      <ion-label range-left>0</ion-label>
+                      <ion-label range-right>100</ion-label>
+                </ion-range>
+              </ion-item>
+  
+            </ion-card-content>
+          </ion-card>
+        </div>
+  
+        <div *ngIf = "showNumberOfBreakingPollenCones">
+            <ion-card>
+              <ion-card-header><button ion-button small> more info </button></ion-card-header>
+              <ion-card-content>
+                <canvas #breakingNeedleBuds></canvas>
+  
+                <ion-item>
+                    <ion-range 
+                    [(ngModel)] = "breakingNeedleBudsValue" min = "0" max = "5" step = "1" snaps = "true"
+                    (ionChange) = "redrawLineGraph(0,breakingNeedleBudsValue)"
+                    >
+                        <ion-label range-left>0</ion-label>
+                        <ion-label range-right>10,000</ion-label>
+                  </ion-range>
+                </ion-item>
+  
+              </ion-card-content>
+            </ion-card>
+        </div>
+  
+        <button ion-button (click) = 'collectData();'>Confirm</button> 
+     
+    </ion-content>

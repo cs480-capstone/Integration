@@ -1,0 +1,45 @@
+<ion-header>
+
+  <ion-navbar>
+
+    <ion-buttons left>
+
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      
+    </ion-buttons>
+
+    <ion-title class = "toolbar-background">
+        <span text-color = "white-text"> Leaderboard </span>
+    </ion-title>
+
+  </ion-navbar>
+
+</ion-header>
+ 
+<ion-content padding class = "background-gradient">
+  <h1 id="leaderboard-heading1" style="color:rgb(255, 255, 255);font-weight:800;text-align:center;">Global Leaders</h1>
+    <div>
+      <img src="assets/imgs/treeGlobe.png" style="display:block;width:50%;height:auto;">
+    </div>
+
+    <div id="leaderboard-button-group" class="btn-group" style="width:100%">
+        <button ion-button id="global-leaderboard-button" style="width:48.6%" class = "btn-group">Global</button>
+      <button ion-button id="divisional-leaderboard-button" style="width:48.6%" class = "btn-group" (click) = "viewLocal()">My Division</button>
+    </div>
+
+    <ion-list>
+
+      <ion-item *ngFor = 'let user of users'>
+
+        <ion-icon name = {{getIcon(user.leaderboardRank)}} style="zoom:1.5;" color = {{getColor(user.leaderboardRank)}} left ></ion-icon> 
+        <ion-note style = "font-size: 17px;font-family: Gill Sans, sans-serif;" color = {{getColor(user.leaderboardRank)}}>{{getLeaderboardDisplay(user.leaderboardRank)}}</ion-note>
+        <ion-note item-end style = "font-size: 17px;font-family: Gill Sans, sans-serif;" color = {{getColor(user.leaderboardRank)}}>{{formatNumber(user.points)}}</ion-note>
+        <ion-icon name="ios-water" item-end color = "water"></ion-icon>
+        
+      </ion-item>
+
+    </ion-list>
+    <div class="spacer" style="width: 300px; height: 30px;"></div>
+</ion-content>

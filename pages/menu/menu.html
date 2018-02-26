@@ -1,0 +1,35 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+        <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+<ion-content class="side-menu-gradient">
+  <ion-list>
+
+    <!--<button ion-item menuClose (click)="openPage('')" class = "white transparent-item">Map
+        <ion-icon name="map"></ion-icon>
+    </button>-->
+
+    <button ion-item menuClose (click)="openPage('TabsPage')" class = "white transparent-item">
+        <ion-icon name="podium" style="zoom:1.5;"></ion-icon>
+         Leaderboard
+    </button>
+
+    <button ion-item menuClose (click)="openPage('HelpPage')" class = "white transparent-item">
+        <ion-icon name="help-circle" style="zoom:1.5;"></ion-icon>
+        Help
+    </button>
+
+    <button ion-item menuClose (click)="openPage('Graphs')" class = "white transparent-item">
+        <ion-icon name="help-circle" style="zoom:1.5;"></ion-icon>
+         Collect Data
+    </button>
+
+  </ion-list>
+</ion-content>
+</ion-menu>
+
+<!-- main navigation -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
