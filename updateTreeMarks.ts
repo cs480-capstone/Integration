@@ -1,4 +1,6 @@
 updateTreeMarks(trees){
+        
+        //ONLY WORKS IF evergreen.png AND deciduous.png ARE IN THE ICON FOLDER IN ASSETS
 
         var everImage = {
             url: '../assets/icon/evergreen.png',
