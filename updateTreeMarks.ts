@@ -1,20 +1,4 @@
-updateTreeMarks(trees){
-        
-        //ONLY WORKS IF evergreen.png AND deciduous.png ARE IN THE ICON FOLDER IN ASSETS
-
-        var everImage = {
-            url: '../assets/icon/evergreen.png',
-            size: new google.maps.Size(36, 43),
-            origin: new google.maps.Point(0,0),
-            anchor: new google.maps.Point(20, 43)
-        }
-
-        var decidImage = {
-            url: '../assets/icon/deciduous.png',
-            size: new google.maps.Size(32, 40),
-            origin: new google.maps.Point(0,0),
-            anchor: new google.maps.Point(16, 40)
-        }
+    updateTreeMarks(trees){
 
         for(let tree of trees){
         
@@ -23,9 +7,9 @@ updateTreeMarks(trees){
                 var treeMark = new google.maps.Marker({
                     position: loc,
                     map: this.map,
-                    icon: (/*insert condition that is true if the tree has the pinecone decorator*/)
-                          ? everImage
-                          : decidImage
+                    icon: (tree.collectData().pinecone)
+                          ? this.everImage
+                          : this.decidImage
                 });
             }
         }
